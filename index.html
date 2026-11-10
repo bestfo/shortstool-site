@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>shortstool</title>
+<meta name="description" content="shortstool is a private, single-user desktop tool for publishing Shorts to channels owned by its operator.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <h1>shortstool</h1>
+    <p class="lead">A private, single-user desktop tool for making and publishing Shorts to my own channels.</p>
+  </header>
+
+  <section>
+    <h2>What it is</h2>
+    <p>shortstool is a personal command-line tool that runs only on my own Windows PC. It helps me write, voice, edit
+      and publish short vertical videos (Shorts) for the channels I own and operate in several languages
+      (Korean, English, Japanese and Spanish).</p>
+    <p>It is <strong>not</strong> a public service. There is no sign-up, no other users and no hosted server.
+      This page exists to describe the tool and its data handling for the API review.</p>
+  </section>
+
+  <section>
+    <h2>How it uses the YouTube API</h2>
+    <table>
+      <thead><tr><th>Purpose</th><th>Scope / method</th></tr></thead>
+      <tbody>
+        <tr><td>Upload a finished video to my own channel with its title, description, tags, thumbnail and
+          scheduled publish time</td><td><code>youtube.upload</code> &mdash; videos.insert, videos.update (status), thumbnails.set</td></tr>
+        <tr><td>Check processing status and view counts of my own uploads after 24 hours and 7 days</td>
+          <td><code>youtube.readonly</code> &mdash; videos.list, channels.list (mine)</td></tr>
+        <tr><td>Research which public Shorts perform well in my genres, to plan my own original videos</td>
+          <td>API key (public data only) &mdash; search.list, videos.list, channels.list</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Workflow</h2>
+    <ol>
+      <li>I prepare a video and its script on my PC.</li>
+      <li>I watch the final video to the end and approve it myself. Nothing is uploaded without this human review.</li>
+      <li>The tool uploads the video as <em>private</em> to my own channel.</li>
+      <li>I check the copyright result in YouTube Studio, then the video is scheduled to publish.</li>
+      <li>The tool reads the view count of my video after 24 hours and 7 days for my weekly report.</li>
+    </ol>
+    <p>Expected volume: about 2 uploads per channel per day (about 6&ndash;8 per day in total) and a few status reads.</p>
+  </section>
+
+  <section>
+    <h2>Data</h2>
+    <p>All data stays on my own PC. Sign-in tokens are kept in the Windows Credential Manager. Nothing is sold,
+      shared or sent to third parties. See the <a href="privacy.html">privacy policy</a>.</p>
+  </section>
+
+  <footer>
+    <p><a href="privacy.html">Privacy Policy</a> &middot;
+      <a href="https://www.youtube.com/t/terms">YouTube Terms of Service</a> &middot;
+      <a href="https://policies.google.com/privacy">Google Privacy Policy</a></p>
+    <p>Contact: <a href="https://github.com/bestfo/shortstool-site/issues">open an issue on this site's repository</a></p>
+  </footer>
+</main>
+</body>
+</html>
